@@ -5,40 +5,53 @@ using namespace std;
 
 int main(){
     int n;
-    cout<<"Enter number of Rows: ";
+    cout<<"Enter number of Data: ";
     cin>>n;
-    vector<vector<int> > v(n,vector<int>(n+1,0));
+    vector<vector<int> > data(n,vector<int>(n+1,0));
     cout<<"Enter Year and population"<<endl;
     for(int i=0;i<n;i++){
-        cin>>v[i][0];
-        cin>>v[i][1];
+        cin>>data[i][0];
+        cin>>data[i][1];
     }
     int num=n;
     for(int i=2;i<=n;i++){
         for(int j=0;j<num-1;j++){
-            v[j][i]=v[j+1][i-1]-v[j][i-1];
+            data[j][i]=data[j+1][i-1]-data[j][i-1];
         }
         num--;
     }
     num=n;
     for(int i=0;i<n;i++){
         for(int j=0;j<num+1;j++){
-            cout<<v[i][j]<<"|";
+            cout<<data[i][j]<<"|";
         }
         num--;
         cout<<endl;
     } 
     cout<<"Enter predicted value: ";
-    float p;
+    float p,y;
     cin>>p;
-    float u=(p-v[0][0])/(v[1][0]-v[0][0]);
-    float u1=u;
-    float y=v[0][1];
-    int fact=1;
-    for(int i=2;i<=n;i++){
-        y+=(u/fact)*v[0][i];
-        fact=fact*i;
-        u=u*(u1-(i-1));
+    if(p>data[0][0]&& p<data[1][0]){
+        float u=(p-data[0][0])/(data[1][0]-data[0][0]);
+        float u1=u;
+        y=data[0][1];
+        int fact=1;
+        for(int i=2;i<=n;i++){
+            y+=(u/fact)*data[0][i];
+            fact=fact*i;
+            u=u*(u1-(i-1));
+        }
     }
-    cout<<"Predicted population at year " <<p<<"is: "<<y;
+    else{
+        float u=(p-data[n-1][0])/(data[n-1][0]-data[n-2][0]);
+        float u1=u;
+        y=data[n-1][1];
+        int fact=1;
+        for(int i=2;i<=n;i++){
+            y+=(u/fact)*data[n-i][i];
+            fact=fact*i;
+            u=u*(u1+(i-1));
+        }
+    }
+     cout<<"Predicted population at year " <<p<<"is: "<<y;
 }
