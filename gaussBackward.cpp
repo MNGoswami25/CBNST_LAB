@@ -36,17 +36,6 @@ int main()
     {
         y=y+(u1/fact)*data[(n-2)/i][i];
         fact=fact*i;
-        // if(i==3){
-        //     u1=(u-1)*u1;
-        // }
-        // else{
-        //     if(i==2){
-        //         u1=u1*(u+1);
-        //     }
-        //     else{
-        //         u1=u1*(u+(i-2));
-        //     }  
-        // }
         if(i%2==0){
             u1=u1*(u+(i/2));
         }
