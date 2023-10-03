@@ -1,4 +1,4 @@
-// //WAP to implement Newton's forward and Backward interpolation
+//WAP to implement Newton's forward and Backward interpolation
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -13,22 +13,18 @@ int main(){
         cin>>data[i][0];
         cin>>data[i][1];
     }
-    int num=n;
     for(int i=2;i<=n;i++){
-        for(int j=0;j<num-1;j++){
+        for(int j=0;j<n-i+1;j++){
             data[j][i]=data[j+1][i-1]-data[j][i-1];
         }
-        num--;
     }
-    num=n;
     for(int i=0;i<n;i++){
-        for(int j=0;j<num+1;j++){
+        for(int j=0;j<n+1-i;j++){
             cout<<data[i][j]<<"|";
         }
-        num--;
         cout<<endl;
     } 
-    cout<<"Enter predicted value: ";
+    cout<<"Enter value to be predicted : ";
     float p,y;
     cin>>p;
     if(p>data[0][0]&& p<data[1][0]){
