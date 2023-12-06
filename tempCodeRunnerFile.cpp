@@ -1,1 +1,1 @@
-num-1
+vector<vector<int> > data(n,vector<int>(n+1,0));

@@ -8,7 +8,7 @@ int main(){
     cout<<"Enter number of Data: ";
     cin>>n;
     vector<vector<int> > data(n,vector<int>(n+1,0));
-    cout<<"Enter Year and population"<<endl;
+    cout<<"Enter Data x->y"<<endl;
     for(int i=0;i<n;i++){
         cin>>data[i][0];
         cin>>data[i][1];
@@ -49,5 +49,5 @@ int main(){
             u=u*(u1+(i-1));
         }
     }
-     cout<<"Predicted population at year " <<p<<"is: "<<y;
+     cout<<"Predicted value at " <<p<<" is: "<<y;
 }

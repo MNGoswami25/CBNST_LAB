@@ -1,3 +1,5 @@
+// WAP to implement stirling interpolation 
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -5,7 +7,7 @@ int main() {
     int n;
     cout << "Enter number of Data: ";
     cin >> n;
-    vector<vector<int>> data(n, vector<int>(n + 1, 0));
+    vector<vector<float>> data(n, vector<float>(n + 1, 0));
     cout << "Enter Data" << endl;
     for (int i = 0; i < n; i++) {
         cin >> data[i][0];
@@ -30,7 +32,7 @@ int main() {
     float y1;
     float u=(p-data[n/2][0])/(data[1][0]-data[0][0]);
     float u1=u;
-    int fact=1;
+    float fact=1;
     for(int i=2;i<=n;i++){
         if(i%2==0)
         {
